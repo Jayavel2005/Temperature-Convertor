@@ -1,5 +1,4 @@
-//Celius to other scales
-
+// Celsius to other scales
 function celciusToFarenheit(degree){
     return degree * 9 / 5 + 32;
 }
@@ -9,15 +8,14 @@ function celciusToKelvin(degree){
 }
 
 function celciusToRankine(degree){
-    return  (degree + 273.15) * (9/5)
+    return (degree + 273.15) * (9 / 5);
 }
 
-function celciusToReaumer(degree){
-    return degree * ( 4 / 5)
+function celciusToReaumur(degree){
+    return degree * (4 / 5);
 }
 
-
-// Fareheit to other scales
+// Fahrenheit to other scales
 function farenheitToCelcius(degree){
     return (5 / 9) * (degree - 32);
 }
@@ -30,27 +28,28 @@ function farenheitToRankine(degree){
     return degree + 459.67;
 }
 
-function farenheitToReaumer(degree){
-    return (4 / 9)*(degree - 32);
+function farenheitToReaumur(degree){
+    return (4 / 9) * (degree - 32);
 }
-
 
 // Kelvin to other scales
 function kelvinToCelcius(degree){
     return degree - 273.15;
 }
+
 function kelvinToFarenheit(degree){
     return (9 / 5) * (degree - 273.15) + 32;
 }
+
 function kelvinToRankine(degree){
     return degree * 1.8;
 }
-function kelvinToReaumer(degree){
+
+function kelvinToReaumur(degree){
     return (4 / 5) * (degree - 273.15);
 }
 
 // Rankine to other scales
-
 function rankineToCelcius(degree){
     return (5 / 9) * (degree - 491.67);
 }
@@ -67,9 +66,7 @@ function rankineToReaumur(degree){
     return (4 / 9) * (degree - 491.67);
 }
 
-
-// Reaumer to other scales
-
+// Reaumur to other scales
 function reaumurToCelcius(degree){
     return degree * (5 / 4);
 }
@@ -83,84 +80,60 @@ function reaumurToKelvin(degree){
 }
 
 function reaumurToRankine(degree){
-    return (degree * (5 / 4 )+ 273.15) * (9 / 5);
+    return (degree * (5 / 4) + 273.15) * (9 / 5);
 }
 
-function convertTemperature(degree, from, to){
-
-    //Celcius to Other 
-    if (from === 'C' && to === 'F') {
-        console.log(celciusToFarenheit(degree))
-    }
-    else if (from === 'C' && to === 'K') {
-        console.log(celciusToKelvin(degree))
-    }
-    else if(from ==="C" && to === "R"){
-        console.log(celciusToRankine(degree))
-    }
-    else if(from === "C" && to === "Re"){
-        console.log(celciusToReaumer(degree))
-    }
-   
-
-    // Farenheit to other scales
-    else if ( from === "F" && to === "C"){
-        console.log(farenheitToCelcius(degree))
-    }
-    else if (from === "F" && to === "K"){
-        console.log(farenheitToKelvin(degree))
-    }
-    else if (from === "F" && to === "R"){
-        console.log(farenheitToRankine(degree))
-    }
-    else if (from === "F" && to === "Re"){
-        console.log(farenheitToReaumer(degree));
-    }
+function convertTemperature() {
+    const degree = parseFloat(document.getElementById('degree').value);
+    const fromDegree = document.getElementById('fromdegree').value.toUpperCase();
+    const toDegree = document.getElementById('todegree').value.toUpperCase();
     
+    let result;
 
-    // kelvin to other scales
-    else if (from === "K" && to === "C"){
-        console.log(kelvinToCelcius(degree))
-    }
-    else if (from === "K" && to ==="F"){
-        console.log(kelvinToFarenheit(degree))
-    }
-    else if (from === "K" && to === "R"){
-        console.log(kelvinToRankine(degree))
-    }
-    else if (from === "K" && to === "Re"){
-        console.log(kelvinToReaumer(degree))
+    if (fromDegree === 'C' && toDegree === 'F') {
+        result = celciusToFarenheit(degree);
+    } else if (fromDegree === 'C' && toDegree === 'K') {
+        result = celciusToKelvin(degree);
+    } else if (fromDegree === 'C' && toDegree === 'R') {
+        result = celciusToRankine(degree);
+    } else if (fromDegree === 'C' && toDegree === 'RE') {
+        result = celciusToReaumur(degree);
+    } else if (fromDegree === 'F' && toDegree === 'C') {
+        result = farenheitToCelcius(degree);
+    } else if (fromDegree === 'F' && toDegree === 'K') {
+        result = farenheitToKelvin(degree);
+    } else if (fromDegree === 'F' && toDegree === 'R') {
+        result = farenheitToRankine(degree);
+    } else if (fromDegree === 'F' && toDegree === 'RE') {
+        result = farenheitToReaumur(degree);
+    } else if (fromDegree === 'K' && toDegree === 'C') {
+        result = kelvinToCelcius(degree);
+    } else if (fromDegree === 'K' && toDegree === 'F') {
+        result = kelvinToFarenheit(degree);
+    } else if (fromDegree === 'K' && toDegree === 'R') {
+        result = kelvinToRankine(degree);
+    } else if (fromDegree === 'K' && toDegree === 'RE') {
+        result = kelvinToReaumur(degree);
+    } else if (fromDegree === 'R' && toDegree === 'C') {
+        result = rankineToCelcius(degree);
+    } else if (fromDegree === 'R' && toDegree === 'F') {
+        result = rankineToFarenheit(degree);
+    } else if (fromDegree === 'R' && toDegree === 'K') {
+        result = rankineToKelvin(degree);
+    } else if (fromDegree === 'R' && toDegree === 'RE') {
+        result = rankineToReaumur(degree);
+    } else if (fromDegree === 'RE' && toDegree === 'C') {
+        result = reaumurToCelcius(degree);
+    } else if (fromDegree === 'RE' && toDegree === 'F') {
+        result = reaumurToFarenheit(degree);
+    } else if (fromDegree === 'RE' && toDegree === 'K') {
+        result = reaumurToKelvin(degree);
+    } else if (fromDegree === 'RE' && toDegree === 'R') {
+        result = reaumurToRankine(degree);
+    } else {
+        console.log("Invalid conversion scale");
+        return;
     }
 
-    // Rankine to the scales
-    else if (from === "R" && to === "C"){
-        console.log(rankineToCelcius(degree))
-        }
-    else if (from === "R" && to === "F"){
-        console.log(rankineToFarenheit(degree))
-        }
-    else if (from === "R" && to === "K"){
-        console.log(rankineToKelvin(degree))
-        }
-    else if (from === "R" && to === "Re"){
-        console.log(rankineToReaumur(degree))
-        }
-    
-        // Reaumer to the scales
-    else if (from === "Re" && to === "C"){
-        console.log(reaumurToCelcius(degree))
-    }
-    else if(from === "Re" && to === "F"){
-        console.log(reaumurToFarenheit(degree))
-    }
-    else if(from === "Re" && to === "K"){
-        console.log(reaumurToKelvin(degree))
-    }
-    else if(from === "Re" && to === "R"){
-            console.log(reaumurToRankine(degree))
-    }
-
-
+    document.getElementById('resultTemperature').innerHTML = `${degree.toFixed(2)} <sup>&deg;</sup> ${fromDegree} == ${result.toFixed(2)} <sup>&deg;</sup> ${toDegree}`;
 }
-
-convertTemperature(30, 'Re', 'R')
