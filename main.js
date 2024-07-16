@@ -31,6 +31,8 @@ const conversionFunctions = {
     }
 };
 
+const conversionUnit = ['C','F','K','R','RE'];
+
 function convertTemperature() {
     const degree = parseFloat(document.getElementById('degree').value);
     const fromDegree = document.getElementById('fromdegree').value.toUpperCase();
@@ -41,12 +43,12 @@ function convertTemperature() {
         return;
     }
 
-    if (!conversionFunctions[fromDegree] || !conversionFunctions[fromDegree][toDegree]) {
-        document.getElementById('resultTemperature').innerHTML = "Invalid conversion scale.";
-        return;
-    }
+    let result;
 
-    const result = conversionFunctions[fromDegree][toDegree](degree);
+    if(conversionUnit.includes(fromDegree) && conversionUnit.includes(toDegree) )
+        result = conversionFunctions[fromDegree][toDegree](degree);
+    else
+        document.getElementById('resultTemperature').innerHTML = "Invalid Scale Unit";
 
     document.getElementById('resultTemperature').innerHTML = `${degree.toFixed(2)} <sup>&deg;</sup> ${fromDegree} == ${result.toFixed(2)} <sup>&deg;</sup> ${toDegree}`;
 }
