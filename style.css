@@ -23,3 +23,7 @@ body{
 li{
     list-style-image: url(thermometer.png);
 }
+
+h5{
+    text-decoration: underline;
+}
