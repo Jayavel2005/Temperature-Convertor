@@ -55,11 +55,13 @@ function convertTemperature() {
         resultTemperature.innerHTML = `${degree.toFixed(2)} <sup>&deg;</sup> ${fromDegree} == ${temp.toFixed(2)} <sup>&deg;</sup> ${toDegree}`;
         localStorage.setItem("temperature", JSON.stringify(resultTemperature.textContent))
     }
-    else
-        document.getElementById('resultTemperature').innerHTML = "Invalid Scale Unit";
+    else{
+        document.getElementById('resultTemperature').innerHTML = "Fill up the above details";
+    }
+
     
 }
 
-resultTemperature.innerHTML = JSON.parse(localStorage.getItem("temperature")) || "Enter a Degree ";
+resultTemperature.innerHTML = JSON.parse(localStorage.getItem("temperature")) || 'Enter a Degree <i class="fa-solid fa-temperature-full fa-shake">';
 
 
