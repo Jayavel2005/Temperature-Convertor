@@ -33,22 +33,33 @@ const conversionFunctions = {
 
 const conversionUnit = ['C','F','K','R','RE'];
 
+
+
+
+const resultTemperature = document.getElementById('resultTemperature');
+let temp;
+
+
 function convertTemperature() {
+   
     const degree = parseFloat(document.getElementById('degree').value);
     const fromDegree = document.getElementById('fromdegree').value.toUpperCase();
     const toDegree = document.getElementById('todegree').value.toUpperCase();
     
-    if (isNaN(degree)) {
-        document.getElementById('resultTemperature').innerHTML = "Please enter a valid number for temperature.";
-        return;
+    
+
+    
+
+    if(conversionUnit.includes(fromDegree) && conversionUnit.includes(toDegree) ){
+        temp = conversionFunctions[fromDegree][toDegree](degree);
+        resultTemperature.innerHTML = `${degree.toFixed(2)} <sup>&deg;</sup> ${fromDegree} == ${temp.toFixed(2)} <sup>&deg;</sup> ${toDegree}`;
+        localStorage.setItem("temperature", JSON.stringify(resultTemperature.textContent))
     }
-
-    let result;
-
-    if(conversionUnit.includes(fromDegree) && conversionUnit.includes(toDegree) )
-        result = conversionFunctions[fromDegree][toDegree](degree);
     else
         document.getElementById('resultTemperature').innerHTML = "Invalid Scale Unit";
-
-    document.getElementById('resultTemperature').innerHTML = `${degree.toFixed(2)} <sup>&deg;</sup> ${fromDegree} == ${result.toFixed(2)} <sup>&deg;</sup> ${toDegree}`;
+    
 }
+
+resultTemperature.innerHTML = JSON.parse(localStorage.getItem("temperature")) || "Enter a Degree ";
+
+
